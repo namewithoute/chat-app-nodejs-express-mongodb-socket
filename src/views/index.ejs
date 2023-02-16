@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Chat App</title>
+		<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+        <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="/img/favicon.png">
+        <link rel="stylesheet" href="/css/bootstrap.css">
+        <link rel="stylesheet" href="/css/styles.css">
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1>CHAT WITH STRANGER</h1>
+                <h3>The more the merrier!</h3>
+            </header>
+        </div>
+      
+        <div class="centered-form col-md-12 col-xs-12">
+          
+            <div class="centered-form__box">
+                <h1>Join with us</h1>
+                <form action="/login" class="login-form" method="post">
+                    <h3>Login</h3>
+
+                    <input type="text" name="username" placeholder="username"/>
+                    <input type="password" name="password" placeholder="password"/>
+                    <button type="submit">login</button>
+                    <p class="message">Not registered? <a >Create an account</a></p>
+                    <% if (errors != null && showRegisterForm == null) { %>
+                        <% errors.forEach(function(err){ %>
+                          <p class="message error"><%= err %></p>
+                        <% }); %>
+                      <% } if (success != null && showRegisterForm == null) { %>
+                        <p class="message success"><%= success %></p>
+                      <% } %>
+                  </form>
+
+                <form action="/register" class="register-form" method="post" >
+                    <h3>Register</h3>
+
+                    <input type="text" name="username" placeholder="username"/>
+                    <input type="password" name="password" placeholder="password"/>
+                    <button type="submit">create</button>
+                    <p class="message">Already registered? <a>Sign In</a></p>
+                    <% if (errors != 0 && showRegisterForm != null && showRegisterForm === true) { %>
+                        <% errors.forEach(function(err){ %>
+                          <p class="message error"><%= err %></p>
+                        <% }); %>
+                      <% } %>
+                  </form>
+                  
+                  <div><span class="col-md-12 text-center">OR</span> </div>
+
+                  <div class="col s12 m6 offset-m3 center-align col-md-12 text-center">
+                    <a class="oauth-container btn darken-4 white black-text" href="/auth/google" style="text-transform:none">
+                        <div class="left">
+                            <img width="20px" style="margin-top:7px; margin-right:8px" alt="Google sign-in" 
+                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
+                        </div>
+                        Login with Google 
+                    </a>
+                  </div>
+                  <p class="col-md-12 text-center danger" >using school email to connect with your schoolmate</p>
+            </div>
+            
+        </div>
+    </body>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+        <script>
+          $('.login-form').show(); $('.register-form, .social-buttons, .form-line').hide();
+        </script>
+    <script>
+        $('.message a').click(function(){
+            $('form, .social-buttons, .form-line').animate({height: "toggle", opacity: "toggle"}, "slow");
+          });
+    </script>
+</html>

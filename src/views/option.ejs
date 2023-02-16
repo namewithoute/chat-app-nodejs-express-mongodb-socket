@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Chat App</title>
+        <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="/img/favicon.png">
+        <link rel="stylesheet" href="/css/bootstrap.css">
+        <link rel="stylesheet" href="/css/styles.css">
+        <script src="/js/fetchToServer.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1>CHAT WITH STRANGER</h1>
+                <h3>The more the merrier!</h3>
+            </header>
+        </div>
+      
+        <div class="centered-form col-md-12 col-xs-12">
+          
+            <div class="centered-form__box">
+                <p class="message" style="text-align: center; padding: 0; margin: 0;">
+                    <button class="btn  room-item stranger " style="margin-bottom: 10%;" onclick="redirect('stranger')">Chat with stranger</button>
+                    <button class="btn  room-item schoolmate " onclick="redirect('schoolmate')">Chat with schoolmate</button>
+                    </a>
+                  </p>
+            </div>
+            </div>
+    </body>
+    <script>
+        function redirect(option){
+            sessionStorage.setItem('room_type',option)
+            window.location.href='/chat?type='+option
+        }
+        const message = '<%-error%>'
+        if(message!=''){
+            alert(message)
+        }
+</script>
+
+</html>
