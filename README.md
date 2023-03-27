@@ -1,5 +1,8 @@
 # chat-app-nodejs-express-mongodb-socket
-Chat with stranger 
+
+Real-time chat application developed on technology: Nodejs & Express framework, Mongodb, Socket.io.
+
+To start the application you need to do the following steps
 
 Step 1: Run the script "npm install" to install the packages
 
